@@ -1,5 +1,11 @@
 Godots::Application.routes.draw do
-  get "home/index"
+  
+# config/routes.rb
+resource :account, :controller => "users"
+resources :users
+resource :user_session
+root :controller => "user_sessions", :action => "new"
+# optional, this just sets the root route
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -50,7 +56,7 @@ Godots::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-root :to => 'home#index'
+  # root :to => 'welcome#index'
 
   # See how all your routes lay out with "rake routes"
 
